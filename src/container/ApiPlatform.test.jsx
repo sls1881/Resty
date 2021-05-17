@@ -4,5 +4,6 @@ import ApiPlatform from './ApiPlatform';
 
 describe('Rick and Morty', () => {
   it.skip('Searches and renders character data', async () => {
-      render(<ApiPlatform/>)
-  }
+    render(<ApiPlatform />);
+  });
+});

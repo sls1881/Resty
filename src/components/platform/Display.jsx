@@ -5,13 +5,13 @@ import PropTypes from 'prop-types';
 function Display({ display }) {
   return (
     <div className="results-display">
-      <pre>{JSON.stringify(display, null, 2)}</pre>
+      <pre>{JSON.stringify(display.display, null, 2)}</pre>
     </div>
   );
 }
 
 Display.propTypes = {
-  display: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  display: PropTypes.object.isRequired,
 };
 
 export default Display;

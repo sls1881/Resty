@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Controls({ onSubmit, onChange, url }) {
+function Controls({ onSubmit, onChange, url, text }) {
   return (
     <div className="form-display">
       <form onSubmit={onSubmit}>
@@ -9,43 +9,43 @@ function Controls({ onSubmit, onChange, url }) {
           <input type="url" name="url" value={url} onChange={onChange} />
         </section>
         <main className="buttons">
-          <label for="get">
+          <label htmlFor="get">
             GET
             <input
               type="radio"
               id="get"
               name="fetchMethod"
-              value="get"
+              value="GET"
               onChange={onChange}
             />
           </label>
-          <label for="post">
+          <label htmlFor="post">
             POST
             <input
               type="radio"
               id="post"
               name="fetchMethod"
-              value="post"
+              value="POST"
               onChange={onChange}
             />
           </label>
-          <label for="put">
+          <label htmlFor="put">
             PUT
             <input
               type="radio"
               id="put"
               name="fetchMethod"
-              value="put"
+              value="PUT"
               onChange={onChange}
             />
           </label>
-          <label for="delete">
+          <label htmlFor="delete">
             DELETE
             <input
               type="radio"
               id="delete"
               name="fetchMethod"
-              value="delete"
+              value="DELETE"
               onChange={onChange}
             />
           </label>
@@ -56,6 +56,7 @@ function Controls({ onSubmit, onChange, url }) {
             rows="4"
             columns="50"
             name="text"
+            value={text}
             onChange={onChange}
           ></textarea>
         </section>
@@ -66,9 +67,8 @@ function Controls({ onSubmit, onChange, url }) {
 
 Controls.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  onUrlChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
   url: PropTypes.string.isRequired,
-  onTextChange: PropTypes.func.isRequired,
 };
 
 export default Controls;

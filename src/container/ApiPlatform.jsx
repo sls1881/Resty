@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Controls from '../components/platform/Controls';
 import Display from '../components/platform/Display';
+import HistoryList from '../components/platform/HistoryList';
 import { getData } from '../service/ApiFetch';
 
 export default class ApiPlatform extends Component {
@@ -8,7 +9,8 @@ export default class ApiPlatform extends Component {
     url: '',
     fetchMethod: 'GET',
     text: '',
-    display: [],
+    display: null,
+    history: [],
   };
 
   //Handle URL change
@@ -24,24 +26,32 @@ export default class ApiPlatform extends Component {
 
     const { url, fetchMethod, text } = this.state;
 
-    const display = await getData({ url, fetchMethod, text });
+    const res = await getData({ url, fetchMethod, text });
+
+    const historyDisplay = { fetchMethod, url };
 
     this.setState({
-      display,
+      display: { display: res },
+      history: [...this.state.history, historyDisplay],
     });
   };
 
   render() {
-    const { url, radio, display } = this.state;
+    const { url, display, history, text } = this.state;
+
     return (
       <div>
         <Controls
           onSubmit={this.handleSubmit}
           onChange={this.handleChange}
           url={url}
-          radio={radio}
+          text={text}
         />
-        <Display display={display} />
+        {display ? <Display display={display} /> : <div></div>}
+        <div>
+          <h1>History</h1>
+          <HistoryList history={history} />
+        </div>
       </div>
     );
   }

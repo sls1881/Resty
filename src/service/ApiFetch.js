@@ -1,26 +1,25 @@
+import { method } from 'lodash';
+
 export const getData = async ({ url, fetchMethod, text }) => {
-  if (fetchMethod === 'get') {
+  if (fetchMethod === 'GET') {
     const res = await fetch(url);
     const getResults = await res.json();
     return getResults;
   }
-  //TODO needs body
-  if (fetchMethod === 'post') {
-    const res = await fetch(url);
+
+  if (
+    fetchMethod === 'POST' ||
+    fetchMethod === 'PUT' ||
+    fetchMethod === 'DELETE'
+  ) {
+    const res = await fetch(url, {
+      method: fetchMethod,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: text,
+    });
     const postResults = await res.json();
-    return postResults.body(text);
-  }
-
-  //TODO needs body
-  if (fetchMethod === 'put') {
-    const res = await fetch(url);
-    const getResults = await res.json();
-    return getResults;
-  }
-
-  if (fetchMethod === 'delete') {
-    const res = await fetch(url);
-    const getResults = await res.json();
-    return getResults;
+    return postResults;
   }
 };

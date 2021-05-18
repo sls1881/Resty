@@ -3,6 +3,7 @@ import Controls from '../components/platform/Controls';
 import Display from '../components/platform/Display';
 import HistoryList from '../components/platform/HistoryList';
 import { getData } from '../service/ApiFetch';
+import styles from '../components/app/App.css';
 
 export default class ApiPlatform extends Component {
   state = {
@@ -40,19 +41,27 @@ export default class ApiPlatform extends Component {
     const { url, display, history, text } = this.state;
 
     return (
-      <div>
-        <Controls
-          onSubmit={this.handleSubmit}
-          onChange={this.handleChange}
-          url={url}
-          text={text}
-        />
-        {display ? <Display display={display} /> : <div></div>}
-        <div>
-          <h1>History</h1>
-          <HistoryList history={history} />
+      <>
+        <header>
+          <h1>RESTy API Fetch</h1>
+        </header>
+        <div className={styles.entireContainer}>
+          <aside>
+            <h1>History</h1>
+            <HistoryList history={history} />
+          </aside>
+          <main>
+            <h2>Search an Endpoint</h2>
+            <Controls
+              onSubmit={this.handleSubmit}
+              onChange={this.handleChange}
+              url={url}
+              text={text}
+            />
+            {display ? <Display display={display} /> : <div></div>}
+          </main>
         </div>
-      </div>
+      </>
     );
   }
 }

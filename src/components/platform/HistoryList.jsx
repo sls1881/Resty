@@ -1,16 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import HistoryItem from './HistoryItem';
+import styles from '../app/App.css';
 
 function HistoryList({ history }) {
   return (
-    <ul aria-label="history">
-      {history.map((item) => (
-        <li key={item.fetchMethod}>
-          <HistoryItem fetchMethod={item.fetchMethod} url={item.url} />
-        </li>
-      ))}
-    </ul>
+    <div className={styles.resultsContainer}>
+      <ul aria-label="history">
+        {history.map((item) => (
+          <li key={item.fetchMethod}>
+            <HistoryItem fetchMethod={item.fetchMethod} url={item.url} />
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 

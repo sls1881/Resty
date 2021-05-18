@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 function HistoryItem({ fetchMethod, url }) {
   return (
     <div>
-      <h2>{fetchMethod}</h2>
+      <p>{fetchMethod}</p>
       <p>{url}</p>
     </div>
   );

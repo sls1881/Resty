@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+button,
+input,
+pre,
+textarea {
+  font-family: 'Nunito', sans-serif;
+}
+
+input[type='radio'] {
+  visibility: hidden;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.rb + label {
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.rb:checked + label {
+  outline: 1px solid black;
+}
+
+li {
+  text-decoration: none;
+  border: 1px solid gray;
+  border-radius: 15px;
+  font-size: 12px;
+  height: 5rem;
+  background-color: darkblue;
+  color: white;
+  width: 98%;
+}
+
+header {
+  text-align: center;
+}
+
+aside {
+  border: 1px solid black;
+  border-radius: 15px;
+  width: 100%;
+  text-align: center;
+}
+
+main {
+  text-align: center;
+}
+
+input[type='url'] {
+  width: 96%;
+  background-color: lightgray;
+}
+
+button {
+  margin: 2rem;
+  background-color: darkblue;
+  color: white;
+}
+
+textarea {
+  width: 96%;
+  background-color: lightgray;
+}
+
+.entireContainer {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 20px;
+  height: 100vh;
+  margin: 10px;
+}
+
+.buttons {
+  justify-content: space-around;
+  width: 100%;
+}
+
+.resultsContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.results-display {
+}
+
+.formDisplay {
+}

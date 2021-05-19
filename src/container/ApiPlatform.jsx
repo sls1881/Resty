@@ -47,18 +47,23 @@ export default class ApiPlatform extends Component {
         </header>
         <div className={styles.entireContainer}>
           <aside>
-            <h1>History</h1>
+            <h2>History</h2>
             <HistoryList history={history} />
           </aside>
           <main>
-            <h2>Search an Endpoint</h2>
-            <Controls
-              onSubmit={this.handleSubmit}
-              onChange={this.handleChange}
-              url={url}
-              text={text}
-            />
-            {display ? <Display display={display} /> : <div></div>}
+            <div className={styles.controlsContainer}>
+              <h2>Search an Endpoint</h2>
+              <Controls
+                onSubmit={this.handleSubmit}
+                onChange={this.handleChange}
+                url={url}
+                text={text}
+              />
+            </div>
+            <div className={styles.displayContainer}>
+              <h2>Results</h2>
+              {display ? <Display display={display} /> : <div></div>}
+            </div>
           </main>
         </div>
       </>

@@ -1,5 +1,19 @@
 * {
   box-sizing: border-box;
+  --dark-sky-blue: #93b7beff;
+  --dark-liver: #554348ff;
+  --light-cyan: #d4f5f5ff;
+  --cadet-grey: #8c9a9eff;
+  --sonic-silver: #747578ff;
+  --light-slate-gray: #77878bff;
+  --dark-slate-gray: #305252ff;
+  --onyx: #373e40ff;
+  --steel-teal: #488286ff;
+  --opal: #b7d5d4ff;
+}
+
+body {
+  background-color: var(--opal);
 }
 
 body,
@@ -19,22 +33,23 @@ input[type='radio'] {
 
 .rb + label {
   cursor: pointer;
-  transition: 0.2s ease-in-out;
+  color: var(--dark-slate-gray);
 }
 
 .rb:checked + label {
-  outline: 1px solid black;
+  padding: 0.5rem;
+  background-color: var(--light-slate-gray);
+  color: white;
 }
 
 li {
-  text-decoration: none;
-  border: 1px solid gray;
-  border-radius: 15px;
+  list-style: none;
+  border-radius: 5px;
   font-size: 12px;
   height: 5rem;
-  background-color: darkblue;
+  background-color: var(--dark-slate-gray);
   color: white;
-  width: 98%;
+  width: 100%;
 }
 
 header {
@@ -42,36 +57,37 @@ header {
 }
 
 aside {
-  border: 1px solid black;
-  border-radius: 15px;
+  border: 2px dotted var(--onyx);
   width: 100%;
   text-align: center;
-}
-
-main {
-  text-align: center;
+  height: 100%;
+  background-color: var(--cadet-grey);
 }
 
 input[type='url'] {
   width: 96%;
-  background-color: lightgray;
 }
 
 button {
   margin: 2rem;
-  background-color: darkblue;
+  background-color: var(--dark-slate-gray);
   color: white;
+  padding: 0.5rem;
+  width: 5rem;
 }
 
 textarea {
   width: 96%;
-  background-color: lightgray;
+}
+
+h2 {
+  text-align: center;
 }
 
 .entireContainer {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-gap: 20px;
+  grid-gap: 5px;
   height: 100vh;
   margin: 10px;
 }
@@ -86,8 +102,17 @@ textarea {
   flex-wrap: wrap;
 }
 
-.results-display {
+.controlsContainer {
+  border: 2px dotted var(--onyx);
+  height: 40%;
+  margin-bottom: 5px;
+  background-color: var(--cadet-grey);
+  text-align: center;
 }
 
-.formDisplay {
+.displayContainer {
+  border: 2px dotted var(--onyx);
+  height: 60%;
+  background-color: var(--cadet-grey);
+  overflow: scroll;
 }

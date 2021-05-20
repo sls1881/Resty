@@ -42,6 +42,11 @@ input[type='radio'] {
   color: white;
 }
 
+ul {
+  text-align: center;
+  width: 90%;
+}
+
 li {
   list-style: none;
   border-radius: 5px;
@@ -104,7 +109,7 @@ h2 {
 
 .controlsContainer {
   border: 2px dotted var(--onyx);
-  height: 40%;
+  height: 300px;
   margin-bottom: 5px;
   background-color: var(--cadet-grey);
   text-align: center;

@@ -4,6 +4,7 @@ import Display from '../components/platform/Display';
 import HistoryList from '../components/platform/HistoryList';
 import { getData } from '../service/ApiFetch';
 import styles from '../components/app/App.css';
+import ReactJson from 'react-json-view'
 
 export default class ApiPlatform extends Component {
   state = {
@@ -62,7 +63,8 @@ export default class ApiPlatform extends Component {
             </div>
             <div className={styles.displayContainer}>
               <h2>Results</h2>
-              {display ? <Display display={display} /> : <div></div>}
+              {display ? <ReactJson src={display} /> : <div></div>}
+              
             </div>
           </main>
         </div>
